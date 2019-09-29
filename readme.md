@@ -4,6 +4,14 @@
 Dejo este link para que puedan instalar el proyecto y configurarlo para que les quede con una url real.
 https://www.codementor.io/magarrent/how-to-install-laravel-5-xampp-windows-du107u9ji
 
+- Una vez que instalamos wamp, composer e instalamos laravel, ejecutar **composer install** en la CMD
+- Tambien instalar [node](https://nodejs.org/es/download/)
+- Ejecutar **npm i** en la CMD
+- Ejecutar **npm run dev** en la CMD
+- Configurar archivo .env para que tome su base de datos
+- Ejecutar **php artisan migrate**
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
