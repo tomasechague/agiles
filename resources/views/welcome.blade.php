@@ -61,7 +61,15 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            body{
+                background-image: url('../images/fondo-inicio.jpg');
+                background-position: top left;  
+                background-size: 100%;  
+                background-repeat: repeat;
+            }
         </style>
+        <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}" /> 
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -84,17 +92,30 @@
                     Agiles
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <div class="py-5" style="">
+                    <div class="container">
+                      <div class="row">
+                        <div class="p-4 col-lg-6">
+                          <h4 class="mb-3 text-left"><b>Registrarse como Alumno</b></h4>
+                          <ul class="text-left">
+                            <li class="my-1">Gratis, siempre!</li>
+                            <li class="my-1">Te permite obtener información en tiempo real de los profesores utilizando un mapa</li>
+                            <li class="my-1">Podes realizar consultas a tu profesor en tiempo real</li>
+                          </ul><a class="btn btn-primary" href="register/student">Registrarse</a>
+                        </div>
+                        <div class="p-4 col-lg-6 text-center">
+                          <h4 class="mb-3 text-left"><b>Registrarse como Profesor</b></h4>
+                          <ul class="text-left">
+                            <li class="my-1">Plan que mas se ajuste a tus necesidades</li>
+                            <li class="my-1">Mapa interactivo por zona</li>
+                            <li class="my-1">Destacá entre los demas profesores, con las asignaturas mas requeridas entre los estudiantes<br></li>
+                          </ul><a class="btn btn-primary" href="register/teacher" style="">Registrarse<br></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </body>
+    <script src="{{ mix('js/app.js') }}"></script>
 </html>

@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/register/student', 'Auth\RegisterController@showRegistrationStudentForm');
+Route::get('/register/teacher', 'Auth\RegisterController@showRegistrationTeacherForm');
