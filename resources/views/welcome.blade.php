@@ -79,10 +79,6 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
                     @endauth
                 </div>
             @endif
@@ -96,20 +92,20 @@
                     <div class="container">
                       <div class="row">
                         <div class="p-4 col-lg-6">
-                          <h4 class="mb-3 text-left"><b>Registrarse como Alumno</b></h4>
+                          <h4 class="mb-3 text-left ml-4"><b>Registrarse como Alumno</b></h4>
                           <ul class="text-left">
                             <li class="my-1">Gratis, siempre!</li>
                             <li class="my-1">Te permite obtener información en tiempo real de los profesores utilizando un mapa</li>
                             <li class="my-1">Podes realizar consultas a tu profesor en tiempo real</li>
-                          </ul><a class="btn btn-primary" href="register/student">Registrarse</a>
+                          </ul><a class="btn btn-primary float-left ml-4" href="register/student">Registrarse</a>
                         </div>
                         <div class="p-4 col-lg-6 text-center">
-                          <h4 class="mb-3 text-left"><b>Registrarse como Profesor</b></h4>
+                          <h4 class="mb-3 text-left ml-4"><b>Registrarse como Profesor</b></h4>
                           <ul class="text-left">
                             <li class="my-1">Plan que mas se ajuste a tus necesidades</li>
                             <li class="my-1">Mapa interactivo por zona</li>
                             <li class="my-1">Destacá entre los demas profesores, con las asignaturas mas requeridas entre los estudiantes<br></li>
-                          </ul><a class="btn btn-primary" href="register/teacher" style="">Registrarse<br></a>
+                          </ul><a class="btn btn-primary float-left ml-4" href="register/teacher" style="">Registrarse<br></a>
                         </div>
                       </div>
                     </div>
