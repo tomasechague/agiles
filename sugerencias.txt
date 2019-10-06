@@ -1,0 +1,28 @@
+Cambiar:
+- Juntarnos y que no sea todo online.
+
+
+- cambiar el mapa estatico a dinamico
+
+
+
+Mantener:
+- comunicacion
+- versionado de git
+
+
+- Registro y login 
+
+
+
+
+
+Probar:
+- Dividir las tareas e ir rotando entre ellas.
+
+
+
+
+- calificar profesor por materia
+- conexion alumno con profesor
+- busqueda modo mercado  libre
