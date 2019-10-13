@@ -1854,7 +1854,148 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      lesson: '',
+      postalcode: '',
+      teachers: {}
+    };
+  },
+  methods: {
+    teachersSearch: function teachersSearch() {
+      var _this = this;
+
+      var url = 'api/teachers/search/' + this.lesson + '/' + this.postalcode;
+
+      if (!this.lesson | !this.postalcode) {
+        this.teachers = '';
+        return;
+      }
+
+      axios.get(url).then(function (_ref) {
+        var data = _ref.data;
+        _this.teachers = data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    }
+  },
+  watch: {
+    lesson: function lesson(value) {
+      this.teachersSearch();
+    },
+    postalcode: function postalcode(value) {
+      this.teachersSearch();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['lesson', 'postalcode'],
+  data: function data() {
+    return {
+      lesson: '',
+      teachers: 0
+    };
+  },
+  methods: {
+    teachersSearch: function teachersSearch() {
+      var _this = this;
+
+      var url = 'api/teachers/search/' + this.lesson + '/' + this.postalcode;
+      axios.get(url).then(function (_ref) {
+        var data = _ref.data;
+        console.log(data);
+        _this.teachers = data;
+      })["catch"](function (e) {
+        console.error(e);
+      });
+    }
+  },
+  computed: {
+    codeAndLesson: function codeAndLesson() {
+      return this.lesson && this.postalcode;
+    }
+  },
+  watch: {
+    codeAndLesson: function codeAndLesson(value) {
+      if (value) {
+        this.teachersSearch();
+      }
+    }
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -37156,6 +37297,198 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Bienvenido")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "lessonInput" } }, [
+                  _vm._v("Materia")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lesson,
+                      expression: "lesson"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "email",
+                    id: "lessonInput",
+                    "aria-describedby": "materia",
+                    placeholder: "Ingrese la materia que desea buscar"
+                  },
+                  domProps: { value: _vm.lesson },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.lesson = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "postalcode" } }, [
+                  _vm._v("Codigo Postal")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.postalcode,
+                      expression: "postalcode"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    id: "postalcode",
+                    placeholder: "Ingrese el codigo postal donde desea buscar"
+                  },
+                  domProps: { value: _vm.postalcode },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.postalcode = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Listado de Profesores")
+          ]),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "list-group list-group-flush" },
+            _vm._l(_vm.teachers, function(teacher) {
+              return _c("li", { staticClass: "list-group-item" }, [
+                _c("div", { staticClass: "row" }, [
+                  _vm._m(0, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-6 col-md-8" }, [
+                    _c("h4", [_vm._v(_vm._s(teacher.user.name))]),
+                    _vm._v(" "),
+                    _c("small", [
+                      _c("cite", [
+                        _vm._v(
+                          _vm._s(teacher.address + ", " + teacher.country) +
+                            "\n                                        "
+                        ),
+                        _c("i", {
+                          staticClass: "glyphicon glyphicon-map-marker"
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c("i", { staticClass: "glyphicon glyphicon-envelope" }),
+                      _vm._v(
+                        _vm._s(teacher.user.email) +
+                          "\n                                    "
+                      ),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "glyphicon glyphicon-globe" }),
+                      _vm._v(
+                        "Materia: " +
+                          _vm._s(teacher.lesson) +
+                          "\n                                    "
+                      ),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("i", { staticClass: "glyphicon glyphicon-globe" }),
+                      _c("a", { attrs: { href: "" } }, [
+                        _vm._v(
+                          "\n                                        https://www.linkedin.com/in/" +
+                            _vm._s(teacher.user.name.replace(" ", "-")) +
+                            "\n                                    "
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1, true)
+                  ])
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6 col-md-4" }, [
+      _c("img", {
+        staticClass: "img-rounded img-responsive",
+        attrs: { src: "http://lorempixel.com/200/150/user", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-group" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Ver Perfil")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -37163,19 +37496,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
+    return _c("div", { staticClass: "container-fluid" }, [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
+              _vm._v("Listado de Profesores")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
+            _c("div", { staticClass: "card-body" })
           ])
         ])
       ])
@@ -49350,6 +49679,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('profesores-listado', __webpack_require__(/*! ./components/ProfesoresListadoComponent.vue */ "./resources/js/components/ProfesoresListadoComponent.vue"));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49484,6 +49814,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ProfesoresListadoComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/ProfesoresListadoComponent.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c& */ "./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c&");
+/* harmony import */ var _ProfesoresListadoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfesoresListadoComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProfesoresListadoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ProfesoresListadoComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfesoresListadoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfesoresListadoComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfesoresListadoComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfesoresListadoComponent.vue?vue&type=template&id=20a66e9c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfesoresListadoComponent_vue_vue_type_template_id_20a66e9c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

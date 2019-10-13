@@ -63,7 +63,7 @@
             }
 
             body{
-                background-image: url('../images/fondo-inicio.jpg');
+                background-image: url({{url('images/fondo-inicio.jpg')}})
                 background-position: top left;  
                 background-size: 100%;  
                 background-repeat: repeat;

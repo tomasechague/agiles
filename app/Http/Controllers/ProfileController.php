@@ -82,4 +82,12 @@ class ProfileController extends Controller
     {
         //
     }
+
+    public function teachersGet($lesson,$postalcode){
+        return Profile::with('user')
+                       ->where('is_teacher', 1)
+                       ->where('lesson','like','%'.$lesson.'%')
+                       ->where('postalCode','like' ,'%'.$postalcode.'%')
+                       ->get();
+    }
 }
