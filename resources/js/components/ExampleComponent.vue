@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Bienvenido</div>
+                    <div class="card-header">Busqueda de Profesores</div>
                     <div class="card-body">
                         <form>
                           <div class="form-group">
