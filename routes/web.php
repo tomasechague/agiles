@@ -29,3 +29,7 @@ Route::post('/register/student', 'Auth\RegisterController@registerStudent')->nam
 
 Route::get('/register/teacher', 'Auth\RegisterController@showRegistrationTeacherForm');
 Route::post('/register/teacher', 'Auth\RegisterController@registerTeacher')->name('registerTeacher');
+
+
+//Profile
+Route::resource('perfil', 'ProfileController');

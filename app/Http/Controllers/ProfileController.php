@@ -44,9 +44,11 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show( $id)
     {
-        //
+        $profile =Profile::with('user')->findOrFail($id);
+
+        return view('profile',['profile'=>$profile]);
     }
 
     /**

@@ -35,7 +35,7 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                            <li class="nav-item">
-                               <a href="#" class="nav-link">Buscar Profesor</a>
+                               <a href="/home" class="nav-link">Buscar Profesor</a>
                            </li>
                         @endauth
                     </ul>

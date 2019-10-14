@@ -47,7 +47,7 @@
                                     </p>
                                     <!-- Split button -->
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-primary">Ver Perfil</button>
+                                        <a :href="'perfil/'+teacher.id" class="btn btn-primary">Ver Perfil</a>
                                     </div>
                                 </div>
                             </div>
