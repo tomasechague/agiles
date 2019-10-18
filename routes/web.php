@@ -23,6 +23,7 @@ Route::middleware(['Auth'])->group(function(){
 })
 */
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/email', 'HomeController@sendEmail');
 
 Route::get('/register/student', 'Auth\RegisterController@showRegistrationStudentForm');
 Route::post('/register/student', 'Auth\RegisterController@registerStudent')->name('registerStudent');
