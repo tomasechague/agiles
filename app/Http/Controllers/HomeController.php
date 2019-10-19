@@ -29,16 +29,16 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function sendEmail(){
+    public function sendEmail(Request $request){
         $user = Auth::user();
-        $to_name = $user->email;
-        $to_email = 'tomiechague@gmail.com';
-        $data = array('name'=>'tomas', 'body' => 'A test mail');
+        $to_name = $user->name;
+        $to_email = $user->email;
+        $data = array('name'=>$request->get('teacherName'),'body' => 'Buen dia, estoy interesado en tomar una clase, queria saber la disponibilidad horaria, mi mail es: '. $user->email);
         
         Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
         $message->to($to_email, $to_name)
-            ->subject('Laravel Test Mail');
-        $message->from('tomiechague@gmail.com','Test Mail');
+            ->subject('Steacher Contact');
+        $message->from('tomiechague@gmail.com','Steacher');
         });
     }
 }

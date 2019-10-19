@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/teachers/search/{lesson}/{postalcode}', 'ProfileController@teachersGet');
+Route::post('/email', 'ProfileController@sendEmail');

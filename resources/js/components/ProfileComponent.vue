@@ -10,7 +10,7 @@
                                 <div class="profile-img">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
                                 </div>
-                                <button class="btn btn-success mt-4 btn-block">Contactame</button>
+                                <button class="btn btn-success mt-4 btn-block" @click="sendEmail()">Contactame</button>
                             </div>
                             <div class="col-md-6">
                                 <div class="profile-head">
@@ -39,7 +39,6 @@
                                         <div class="col-md-6 mt-2">Provincia</div><div class="col-md-6">{{ profile.province | capitalize }}</div>
                                         <div class="col-md-6 mt-2">Codigo Postal</div><div class="col-md-6">{{ profile.postalCode }}</div>
                                         <div class="col-md-6 mt-2">Direccion</div><div class="col-md-6">{{ profile.address }}</div>
-
                                       </div>
 
                                   </div>
@@ -67,6 +66,22 @@
         data: function () {
             return {}
         },
+         methods: {
+          sendEmail(){
+            let url = '/email'
+            axios
+            .post(url,{
+                teacherName : this.profile.user.name,
+                teacherEmail : this.profile.user.email
+              })
+            .then(({data}) => {
+                console.log(data);
+            })
+            .catch(e => {
+              console.error(e);
+            });
+          }
+         },
         filters: {
           capitalize: function (value) {
             if (!value) return ''

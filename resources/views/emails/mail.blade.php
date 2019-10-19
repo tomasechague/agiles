@@ -1,2 +1,2 @@
-Hello <strong>{{ $name }}</strong>,
+Hola <strong>{{ $name }}</strong>,
 <p>{{ $body }}</p>
