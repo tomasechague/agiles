@@ -10,7 +10,7 @@
                                 <div class="profile-img">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
                                 </div>
-                                <button class="btn btn-success mt-4 btn-block" @click="sendEmail()">Contactame</button>
+                                <button class="btn btn-success mt-4 btn-block" @click="sendEmail()" :disabled="enviando == 1">Contactame</button>
                             </div>
                             <div class="col-md-6">
                                 <div class="profile-head">
@@ -64,21 +64,32 @@
     export default {
         props:['profile'],
         data: function () {
-            return {}
+            return {
+              enviando : 0
+            }
         },
          methods: {
           sendEmail(){
-            let url = '/email'
+            let url = '/email';
+            this.enviando = 1
             axios
             .post(url,{
                 teacherName : this.profile.user.name,
                 teacherEmail : this.profile.user.email
               })
-            .then(({data}) => {
-                console.log(data);
+            .then((response) => {
+                this.$swal({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Su email ha sido enviado',
+                    showConfirmButton: false,
+                    timer: 1500
+                  }
+                )
             })
             .catch(e => {
               console.error(e);
+              this.enviando = 0
             });
           }
          },
