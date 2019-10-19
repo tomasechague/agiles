@@ -57,27 +57,38 @@
                 </div>
             </div>
         </div>
+         <loading :active.sync="isLoading" 
+        :can-cancel="true" 
+        :on-cancel="onCancel"
+        :is-full-page="fullPage"></loading>
     </div>
 </template>
 
 <script>
+    import Loading from 'vue-loading-overlay';
+    import 'vue-loading-overlay/dist/vue-loading.css';
+
     export default {
         props:['profile'],
         data: function () {
             return {
-              enviando : 0
+              enviando : 0,
+              isLoading: false,
+              fullPage: true
             }
         },
          methods: {
           sendEmail(){
             let url = '/email';
-            this.enviando = 1
+            this.enviando = 1;
+            this.isLoading = true;
             axios
             .post(url,{
                 teacherName : this.profile.user.name,
                 teacherEmail : this.profile.user.email
               })
             .then((response) => {
+                this.isLoading = false
                 this.$swal({
                     position: 'top-end',
                     type: 'success',
@@ -90,8 +101,13 @@
             .catch(e => {
               console.error(e);
               this.enviando = 0
+              this.isLoading = false
             });
-          }
+          },
+          onCancel() {
+            this.isLoading = false
+              console.log('User cancelled the loader.')
+            }
          },
         filters: {
           capitalize: function (value) {
@@ -99,6 +115,9 @@
             value = value.toString()
             return value.charAt(0).toUpperCase() + value.slice(1)
           }
-        }
+        },
+        components: {
+            Loading
+        },
     }
 </script>
