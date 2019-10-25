@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center mt-4">
+        <!--<div class="row justify-content-center mt-4">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Listado de Profesores</div>
@@ -45,7 +45,6 @@
                                             https://www.linkedin.com/in/{{ teacher.user.name.replace(' ','-') }}
                                         </a> 
                                     </p>
-                                    <!-- Split button -->
                                     <div class="btn-group">
                                         <a :href="'perfil/'+teacher.id" class="btn btn-primary">Ver Perfil</a>
                                     </div>
@@ -55,11 +54,17 @@
                     </ul>
                 </div>
             </div>
+        </div> -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <google-map :teachers="teachers"/>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import GoogleMap from "./GoogleMap";
     export default {
         data: function () {
             return {
@@ -93,5 +98,8 @@
                 this.teachersSearch()
             }
         },
+        components: {
+            GoogleMap
+        }
     }
 </script>

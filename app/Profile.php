@@ -14,4 +14,15 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+    public function getLatAttribute()
+	{
+    	return floatval($this->attributes['lat']);
+	}
+
+	public function getLngAttribute()
+	{
+    	return floatval($this->attributes['lng']);
+	}
 }

@@ -21,6 +21,15 @@ import VueSweetalert2 from 'vue-sweetalert2';
 
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import * as VueGoogleMaps from "vue2-google-maps";
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: "AIzaSyA7YcmmzkeudV67xdRTxwKznT9lNRLisnw",
+    libraries: "places" // necessary for places input
+  }
+});
+
 
 
 Vue.use(VueSweetalert2);
