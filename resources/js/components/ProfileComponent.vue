@@ -11,7 +11,15 @@
                                     <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/> -->
                                     <img :src="'https://ui-avatars.com/api/?size=250&name='+ profile.user.name" alt="">
                                 </div>
-                                <button class="btn btn-success mt-4 btn-block" @click="sendEmail()" :disabled="enviando == 1">Contactame</button>
+                                <div class="btn-group" role="group">
+                                  <button id="btnGroupDrop1" type="button" class="btn btn-success mt-4 btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Contactame
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="#" @click="sendEmail()" :disabled="enviando == 1">Email</a>
+                                    <a class="dropdown-item" :href="'https://wa.me/5492214954636?text=Buenos dias '+ profile.user.name+', vi tu perfil en Steacher y deseo contactarme contigo'" target="_blank">Whatsapp</a>
+                                  </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="profile-head">
