@@ -6757,6 +6757,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46305,17 +46313,67 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-success mt-4 btn-block",
-                      attrs: { disabled: _vm.enviando == 1 },
-                      on: {
-                        click: function($event) {
-                          return _vm.sendEmail()
-                        }
-                      }
-                    },
-                    [_vm._v("Contactame")]
+                    "div",
+                    { staticClass: "btn-group", attrs: { role: "group" } },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-success mt-4 btn-block dropdown-toggle",
+                          attrs: {
+                            id: "btnGroupDrop1",
+                            type: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Contactame\n                              "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "dropdown-menu",
+                          attrs: { "aria-labelledby": "btnGroupDrop1" }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: { href: "#", disabled: _vm.enviando == 1 },
+                              on: {
+                                click: function($event) {
+                                  return _vm.sendEmail()
+                                }
+                              }
+                            },
+                            [_vm._v("Email")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              attrs: {
+                                href:
+                                  "https://wa.me/5492214954636?text=Buenos dias " +
+                                  _vm.profile.user.name +
+                                  ", vi tu perfil en Steacher y deseo contactarme contigo",
+                                target: "_blank"
+                              }
+                            },
+                            [_vm._v("Whatsapp")]
+                          )
+                        ]
+                      )
+                    ]
                   )
                 ]),
                 _vm._v(" "),
@@ -61636,8 +61694,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravelapps\teacherApp\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravelapps\teacherApp\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\laravelapps\agiles\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravelapps\agiles\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
