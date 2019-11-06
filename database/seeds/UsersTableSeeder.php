@@ -11,23 +11,30 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-         $users = factory(App\User::class, 15)->create();
-
-         \App\User::insert([
-            'address' => 'John Doe',
-            'country' => 'AR',
-            'province' => 'Buenos Aires',
-            'postalCode' => 1900,
-            'lesson' => 'matematica',
-            'is_teacher' => 1,
-            'user_id' => 1,
-            'lat' => 'john@doe.com',
-            'lng' => 'john@doe.com'
-        ]);
-
         \App\User::insert([
-            'name' => 'Jane Doe',
-            'email' => 'jane@doe.com'
+            'name' => 'Tomas Echague',
+            'email' => 'tomiechague@gmail.com',
+            'password' => bcrypt('agiles123'),
+        ]);
+        \App\User::insert([
+            'name' => 'Juan Pablo Alvarez',
+            'email' => 'juampi.sm2@gmail.com',
+            'password' => bcrypt('agiles123'),
+        ]);
+        \App\User::insert([
+            'name' => 'Federico Giuliano',
+            'email' => 'fedeg@gmail.com',
+            'password' => bcrypt('agiles123'),
+        ]);
+        \App\User::insert([
+            'name' => 'Maximiliano Rodriguez',
+            'email' => 'maxiR@gmail.com',
+            'password' => bcrypt('agiles123'),
+        ]);
+        \App\User::insert([
+            'name' => 'Daniel Testa',
+            'email' => 'danit@gmail.com',
+            'password' => bcrypt('agiles123'),
         ]);
     }
 }
