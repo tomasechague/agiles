@@ -69,7 +69,3 @@ class ProfileTableSeeder extends Seeder
         ]);
     }
 
-    private function getRandomUserId() {
-        $user = \App\User::inRandomOrder()->first();
-        return $user->id;
-    }
