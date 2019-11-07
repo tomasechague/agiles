@@ -127,6 +127,7 @@ class RegisterController extends Controller
             'province' => ['required', 'string', 'max:255'],
             'postCode' => ['required', 'string', 'max:255'],
             'lesson' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
         ]);
         try{
             DB::beginTransaction();
@@ -143,6 +144,7 @@ class RegisterController extends Controller
                 'postalCode' => $request->get('postCode'),
                 'is_teacher' => 1,
                 'lesson' => $request->get('lesson'),
+                'phone' => $request->get('phone'),
                 'user_id' => $user->id,
             ]);
             DB::commit();

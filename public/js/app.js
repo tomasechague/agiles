@@ -46363,7 +46363,9 @@ var render = function() {
                               staticClass: "dropdown-item",
                               attrs: {
                                 href:
-                                  "https://wa.me/5492214954636?text=Buenos dias " +
+                                  "https://wa.me/" +
+                                  _vm.profile.phone +
+                                  "?text=Buenos dias " +
                                   _vm.profile.user.name +
                                   ", vi tu perfil en Steacher y deseo contactarme contigo",
                                 target: "_blank"
@@ -61694,8 +61696,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\laravelapps\agiles\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\laravelapps\agiles\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\agiles\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\agiles\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

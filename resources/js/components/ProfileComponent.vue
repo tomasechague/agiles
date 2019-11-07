@@ -17,7 +17,7 @@
                                   </button>
                                   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                     <a class="dropdown-item" href="#" @click="sendEmail()" :disabled="enviando == 1">Email</a>
-                                    <a class="dropdown-item" :href="'https://wa.me/5492214954636?text=Buenos dias '+ profile.user.name+', vi tu perfil en Steacher y deseo contactarme contigo'" target="_blank">Whatsapp</a>
+                                    <a class="dropdown-item" :href="'https://wa.me/'+ profile.phone+'?text=Buenos dias '+ profile.user.name+', vi tu perfil en Steacher y deseo contactarme contigo'" target="_blank">Whatsapp</a>
                                   </div>
                                 </div>
                             </div>

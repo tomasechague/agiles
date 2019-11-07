@@ -19,6 +19,7 @@ class CreateProfileTable extends Migration
             $table->string('country');
             $table->string('province');
             $table->string('postalCode');
+            $table->string('phone')->nullable();
             $table->string('lesson')->nullable();
             $table->boolean('is_teacher');
             $table->unsignedBigInteger('user_id');
