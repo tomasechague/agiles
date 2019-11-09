@@ -128,6 +128,8 @@ class RegisterController extends Controller
             'postCode' => ['required', 'string', 'max:255'],
             'lesson' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
+			'lat' => ['required', 'string', 'max:255'],
+			'lng' => ['required', 'string', 'max:255'],
         ]);
         try{
             DB::beginTransaction();
@@ -146,6 +148,8 @@ class RegisterController extends Controller
                 'lesson' => $request->get('lesson'),
                 'phone' => $request->get('phone'),
                 'user_id' => $user->id,
+				'lat' => $request->get('lat'),
+				'lng' => $request->get('lng'),
             ]);
             DB::commit();
             $this->guard()->login($user);

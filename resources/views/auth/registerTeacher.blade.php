@@ -1,5 +1,37 @@
 @extends('layouts.app')
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDwN7PlWL-aT8SEffUlBY_54apCfewJF9A"></script>
+
+		<script>
+		var searchInput = 'address';
+
+		$(document).ready(function () {
+			var autocomplete;
+			autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+				types: ['geocode'],
+			});
+			
+			google.maps.event.addListener(autocomplete, 'place_changed', function () {
+				var near_place = autocomplete.getPlace();
+				document.getElementById('lat').value = near_place.geometry.location.lat();
+				document.getElementById('lng').value = near_place.geometry.location.lng();
+				
+				document.getElementById('latitude_view').innerHTML = near_place.geometry.location.lat();
+				document.getElementById('longitude_view').innerHTML = near_place.geometry.location.lng();
+			});
+		});
+		
+		$(document).on('change', '#'+searchInput, function () {
+		document.getElementById('latitude_input').value = '';
+		document.getElementById('longitude_input').value = '';
+		
+		document.getElementById('latitude_view').innerHTML = '';
+		document.getElementById('longitude_view').innerHTML = '';
+	});	
+
+	</script>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -70,15 +102,49 @@
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">Address</label>
 
-                            <div class="col-md-6">
-                                <input id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
+                            <div class="col-md-6" class="alert alert-info">
+
+                                <input id="address" placeholder="Type address..." type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div>	
+					
+                        </div>
+						
+						<div class="form-group row" style="display: none;">
+                            <label for="lat" class="col-md-4 col-form-label text-md-right">lat</label>
+
+                            <div class="col-md-6" class="alert alert-info">
+
+                                <input id="lat" type="lat" class="form-control @error('lat') is-invalid @enderror" name="lat" value="{{ old('lat') }}" required autocomplete="lat">
+
+                                @error('lat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>	
+					
+                        </div>
+						
+						<div class="form-group row" style="display: none;">
+                            <label for="lng" class="col-md-4 col-form-label text-md-right">lng</label>
+
+                            <div class="col-md-6" class="alert alert-info">
+
+                                <input id="lng" type="lng" class="form-control @error('lng') is-invalid @enderror" name="lng" value="{{ old('lng') }}" required autocomplete="lng">
+
+                                @error('lng')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>	
+					
                         </div>
 
                         <div class="form-group row">
@@ -151,7 +217,7 @@
                                     {{ __('Register') }}
                                 </button>
                             </div>
-                        </div>
+                        </div>					
                     </form>
                 </div>
             </div>
